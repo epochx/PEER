@@ -1,0 +1,62 @@
+results_path: ~/results/wikigen/
+
+seed: 2
+
+data_parallel: false
+device: cuda
+verbose: 10
+overwrite: true
+write_mode: BOTH
+
+dataset: lang8
+max_len: 100
+lowercase: true
+min_freq: 1
+force_dataset_reload: false
+
+encoder: lstm
+fasttext_embedding: true
+encoder_embedding_size: 128
+encoder_tag_embedding_size: 128
+encoder_hidden: 128
+encoder_input_dropout: 0.5
+encoder_output_dropout: 0.5
+bidirectional: true
+
+decoder_embedding_size: 128
+decoder_hidden: 256
+decoder_input_dropout: 0.5
+decoder_output_dropout: 0.5
+attention: general
+teacher_forcing_p: 0.5
+
+latent_size: 128
+optim: Adam
+lr: 0.001
+decay: 0.8
+patience: 5
+clip: 5
+metric: loss
+anneal_function: logistic
+epochs: 100
+batch_size: 64
+test_batch_size: 10
+beam_size: 5
+
+edit_input_dropout: 0.5
+edit_output_dropout: 0.5
+before_input_dropout: 0.5
+before_output_dropout: 0.5
+after_input_dropout: 0.5
+after_output_dropout: 0.5
+after_word_dropout: 1
+before_word_dropout: 1
+
+k: 1
+x0: 10000
+load_model: 
+use_kl: false
+bow_loss: true
+edit_encoder: yin
+hash: null
+num_classes: null
